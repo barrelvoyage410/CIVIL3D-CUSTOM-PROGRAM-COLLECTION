@@ -1,0 +1,12 @@
+(defun C:DANW ( / CGL_DISTANCE CGL_TYPE CGL_BNAME CGL_ENT CGL_DIST)
+;(defun C:danw ()
+  (setq CGL_DIST 25.0)
+  (setq CGL_DISTANCE (getreal (strcat "\nEnter Distance between points : <" (rtos CGL_DIST 2 2)  "> ")))
+  (if (= CGL_DISTANCE nil) (setq CGL_DISTANCE CGL_DIST))
+  (print)
+  (setq CGL_TYPE "Block")
+  (setq CGL_BNAME "GRAD_X")
+  (setq CGL_ENT (entsel "\nPick object to measure:"))
+  (command "._measure" CGL_ENT "BLOCK" CGL_BNAME "Y" CGL_DISTANCE)
+  (princ)
+) ;end DanW

@@ -1,0 +1,16 @@
+(defun c:rectang ( / cmde pt1 pt2)
+  (setq m:err *error* *error* *merr*
+        cmde (getvar "CMDECHO")
+  )
+  (setvar "CMDECHO" 0)
+  (setq pt1 (getpoint "\nFirst corner: ")
+        pt2 (getcorner pt1 "\nOther corner: ")
+  )
+  (command "_.PLINE" pt1 "_non" (list (car pt1) (cadr pt2))
+                   pt2 "_non" (list (car pt2) (cadr pt1))
+           "_C"
+  )
+  (setvar "CMDECHO" cmde)
+  (setq *error* m:err m:err nil)
+  (princ)
+)
