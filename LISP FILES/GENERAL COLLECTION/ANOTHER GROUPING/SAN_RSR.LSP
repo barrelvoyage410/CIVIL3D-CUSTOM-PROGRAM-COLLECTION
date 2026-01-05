@@ -10,8 +10,8 @@
 ;;;-----------------------------------------------------------------------;;;
 ;;; REVISED 03-20-2007 to check for serial number                         ;;; v1.04
 (defun C:SAN_RSR ()
-  (if (cgl_check_serial)
-    (progn
+;  (if (cgl_check_serial)
+;    (progn
   (graphscr)
   (setq VERSION "1.04"
         REDRAW-COMMAND
@@ -210,8 +210,8 @@
   (print)
   (print)
   (princ)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
+;    );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)  
 ) ; end san_rsr

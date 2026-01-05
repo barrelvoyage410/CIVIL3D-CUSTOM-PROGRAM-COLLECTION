@@ -127,16 +127,16 @@
   (princ)
 
 ) ; end defun drarea
-(princ)
-(defun C:DRAREA ()
-  (if (cgl_check_serial)
-    (progn
-  (vmon)
-  (DRAREA)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)
-  )
+;          (princ)
+;          (defun C:DRAREA ()
+;  (if (cgl_check_serial)
+;    (progn
+;  (vmon)
+;  (DRAREA)
+;    );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)
+;                  )
 (princ "\n\tc:DRAREA loaded. Start command with DRAREA.")
 (princ)

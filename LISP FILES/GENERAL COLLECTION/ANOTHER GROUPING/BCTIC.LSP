@@ -126,8 +126,8 @@
              (/       bm      ce      os      clyr    olderr  msg     TICFT
               TICLEN  BCENT   BCLST   ENTTYP  PICKPT  PT1     PT2     INSPT
               SIDEPT  PT3     PT4     TICEND  CENPT PL-ENDPOINT PL-PICKPT PL-STARTPOINT)
-  (if (cgl_check_serial)
-    (progn
+ ; (if (cgl_check_serial)
+ ;   (progn
  ;---------------------------------------------------------------------------
  ;                                       DEFINE STANDARD FUNCTIONS
  ;---------------------------------------------------------------------------
@@ -343,10 +343,10 @@
   (RESET)
   (princ)
   (prinC)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)
+;    );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)
 
  ;---------------------------------------------------------------------------
   ) ;_ end of defun

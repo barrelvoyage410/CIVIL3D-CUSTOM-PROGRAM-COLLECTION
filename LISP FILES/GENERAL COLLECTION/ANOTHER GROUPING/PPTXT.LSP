@@ -38,8 +38,8 @@
 ;;;                                                                       ;;;
 ;;; revised 03-20-2007 to check for serial number                         ;;;v1.32
 (defun C:PPTXT ()
-  (if (cgl_check_serial)
-    (progn
+;  (if (cgl_check_serial)
+;    (progn
   (setq	VERSION	"1.32"
 	REDRAW-COMMAND
 	 ".REDRAWALL"
@@ -1582,8 +1582,8 @@
   (MODER)
   (print)
   (print)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
+;    );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)  
 ) ;end defun c:pptxt

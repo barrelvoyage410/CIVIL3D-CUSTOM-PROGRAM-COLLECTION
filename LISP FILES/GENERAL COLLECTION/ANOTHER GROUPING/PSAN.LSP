@@ -34,8 +34,8 @@
 ;;; revised 3/19/2007 to use serial number check.                         ;;; v3.0.2
 
 (defun C:PSAN ()
-  (if (cgl_check_serial)
-    (progn
+;                  (if (cgl_check_serial)
+;                     (progn
   (graphscr)
   (setq VERSION "3.0.2"
         REDRAW-COMMAND
@@ -322,8 +322,8 @@
   (print)
   (princ)
   (princ)
-  );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)
+;                      );end checker progn
+;                        (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;                            );end if
+;                         (princ)
 ) ;end psan

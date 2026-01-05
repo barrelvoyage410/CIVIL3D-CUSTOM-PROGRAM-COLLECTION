@@ -3,8 +3,8 @@
 ;;; revised 11/12/2007 11:02 AM to reset RAD variable to nil between text inserts  ME;;;
 
 (defun C:ZPR ()
-  (if (cgl_check_serial)
-    (progn
+;  (if (cgl_check_serial)
+;    (progn
       (defun *ERROR* (MSG)
 	(RESET)
 	(prompt (strcat "\N\N" MSG "     "))
@@ -51,11 +51,11 @@
       (setvar "OSMODE" OSM)
       (setq RAD nil)
       (princ)
-    )					;end checker progn
-    (alert
-      "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd."
-    )
-  )					;end if
-  (princ)
+;    )					;end checker progn
+;    (alert
+;      "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd."
+;    )
+;  )					;end if
+;  (princ)
 
 )					;END ZPR

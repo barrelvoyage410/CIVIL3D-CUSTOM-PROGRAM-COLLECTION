@@ -1,0 +1,1 @@
+(load "acad.lsp" "My ACAD failed to load.")

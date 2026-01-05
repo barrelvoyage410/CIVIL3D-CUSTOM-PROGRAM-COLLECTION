@@ -3,8 +3,8 @@
 
 
 (defun C:ZPNT () ; Z-PRINT WITH NO LINE TRIMMING
-  (if (cgl_check_serial)
-    (progn
+;  (if (cgl_check_serial)
+;    (progn
   (defun *ERROR* (MSG)
     (RESET)
     (prompt (strcat "\N\N" MSG "     "))
@@ -34,9 +34,9 @@
   (setvar "ORTHOMODE" ORTHO)
   (setvar "OSMODE" OSM)
   (princ)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)
+;    );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)
 
 ) ;END ZPNT

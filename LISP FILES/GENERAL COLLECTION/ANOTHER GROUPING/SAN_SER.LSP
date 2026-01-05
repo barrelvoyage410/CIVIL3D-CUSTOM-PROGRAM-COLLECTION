@@ -40,8 +40,8 @@
 
 
 (defun C:SAN_SER ()
-  (if (cgl_check_serial)
-    (progn
+;           (if (cgl_check_serial)
+;           (progn
   (graphscr)
  ;---------------------------------------------------------------------------
  ; Linetype load_checker
@@ -299,8 +299,8 @@
   (MODER)
   (terpri)
   (princ)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
+;          );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)  
 ) ; end san_ser

@@ -31,8 +31,8 @@
 
 
 (defun C:STM_SER ()
-  (if (cgl_check_serial)
-    (progn
+;  (if (cgl_check_serial)
+;    (progn
   (graphscr)
  ;---------------------------------------------------------------------------
  ; Linetype load_checker
@@ -283,8 +283,8 @@
   (MODER)
   (princ)
   (princ)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
+;    );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)  
 ) ; end stm_ser

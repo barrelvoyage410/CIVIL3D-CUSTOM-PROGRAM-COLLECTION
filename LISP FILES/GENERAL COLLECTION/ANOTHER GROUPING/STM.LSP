@@ -37,8 +37,8 @@
 ;;; revised 03-20-2007 to check for serial number                         ;;; v3.0.2
 ;;; revised 01-21-2008 to use new e_stmfes and p_stmfes insertion point   ;;; v3.0.4
 (defun C:STM ()
-  (if (cgl_check_serial)
-    (progn
+;                  (if (cgl_check_serial)
+;                  (progn
   (graphscr)
 ;;; This bit is designed more for a dual monitor system, as the version will
 ;;; scroll off a three line display....
@@ -549,8 +549,8 @@
   (command "._LAYER" "S" CURRENT_LAYER "")
   (princ) ;exit quietly
   (princ) ;...even more quietly
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
+;                        );end checker progn
+;                       (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;                         );end if
+;                        (princ)  
 ) ;end c:stm

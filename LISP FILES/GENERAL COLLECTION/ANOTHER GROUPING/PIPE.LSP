@@ -264,26 +264,26 @@
   (princ)
   (princ)
 );end pipelbl
-(defun c:pipelbl ()
-  (if (cgl_check_serial)
-    (progn
-  (vmon)
-  (pipelbl)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
-  ); defun pipelbl
-(defun c:pipe ()
-  (if (cgl_check_serial)
-    (progn
-  (vmon)
-  (pipelbl)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
-  ); defun pipe
+;                (defun c:pipelbl ()
+;                      (if (cgl_check_serial)
+;                              (progn
+;                                       (vmon)
+;                                      (pipelbl)
+;                             );end checker progn
+;                         (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;                         );end if
+;                         (princ)  
+;                  ); defun pipelbl
+;                     (defun c:pipe ()
+;                         (if (cgl_check_serial)
+;                               (progn
+;                                 (vmon)
+;                                      (pipelbl)
+;                                         );end checker progn
+;                         (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;                           );end if
+;                           (princ)  
+;                     ); defun pipe
 (princ "\n\tc:PIPELBL loaded. Start command with PIPE or PIPELBL.")
 (princ)
 ;;; Happy Lisping!  The Cad Elf  *<:)-|-<

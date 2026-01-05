@@ -13,35 +13,35 @@
  ;---------------------------------------------------------------------------
  ; save specified mode settings
  ;---------------------------------------------------------------------------
-(defun MODESAVE (A_A)
-  (setq MLST '())
-  (repeat (length A_A)
-    (setq
-      MLST (append MLST (list (list (car A_A) (getvar (car A_A)))))
-    ) ;_ end setq
-    (setq A_A (cdr A_A))
-  ) ;_ end repeat
-) ;_ end defun
+;(defun MODESAVE (A_A)
+;  (setq MLST '())
+;  (repeat (length A_A)
+;    (setq
+;      MLST (append MLST (list (list (car A_A) (getvar (car A_A)))))
+;    ) ;_ end setq
+;    (setq A_A (cdr A_A))
+;  ) ;_ end repeat
+;) ;_ end defun
  ;---------------------------------------------------------------------------
  ; restore saved mode settings
  ;---------------------------------------------------------------------------
-(defun MODER ()
-  (repeat (length MLST)
-    (setvar (caar MLST) (cadar MLST))
-    (setq MLST (cdr MLST))
-  ) ;_ end repeat
-) ;_ end defun
+;(defun MODER ()
+;  (repeat (length MLST)
+;    (setvar (caar MLST) (cadar MLST))
+;    (setq MLST (cdr MLST))
+;  ) ;_ end repeat
+;) ;_ end defun
  ;---------------------------------------------------------------------------
  ;error handler
  ;---------------------------------------------------------------------------
-(defun gradlbl_err (S) ;If an error (such as CTRL-C) occurs
-  (if (/= S "Function cancelled") ;while this command is active...
-    (princ (strcat "\nError: " S))
-  ) ;_ end if
-  (setq *ERROR* OLD_ERR) ;Restore old *error* handler
-  (MODER) ;return modes to old values
-  (princ)
-) ;_ end defun
+;(defun gradlbl_err (S) ;If an error (such as CTRL-C) occurs
+;  (if (/= S "Function cancelled") ;while this command is active...
+;    (princ (strcat "\nError: " S))
+;  ) ;_ end if
+;  (setq *ERROR* OLD_ERR) ;Restore old *error* handler
+;  (MODER) ;return modes to old values
+;  (princ)
+;) ;_ end defun
  ;---------------------------------------------------------------------------
 
 (defun EX_PR ()
@@ -80,17 +80,17 @@
  ;-------------------------------------------------------------------------
 
 (defun GRADLBL ()
-  (setq VERSION "1.24"
-        REDRAW-COMMAND
-         ".REDRAWALL"
-  )
-  (princ
-    (strcat
-      "\r GRADLBL version "
-      VERSION
-      " -- copyright © Cowhey & Associates 1993-2007."
-    )
-  )
+;  (setq VERSION "1.24"
+;        REDRAW-COMMAND
+;         ".REDRAWALL"
+;  )
+;  (princ
+;    (strcat
+;      "\r GRADLBL version "
+;      VERSION
+;      " -- copyright © Cowhey & Associates 1993-2007."
+;    )
+;  )
   (princ
     "\nPrefix \"T\" for TC=; \"D\" for TDC=; \"F\" for FL=; \"R\" for RIM=; and \"E\" for EP=;"
   )
@@ -233,26 +233,26 @@
 ;;;
 ;;; c: definitions
 ;;;
-(defun c:gl ()
-  (if (cgl_check_serial)
-    (progn
-  (vmon)
-  (gradlbl)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
-  )
-(defun c:gradlbl ()
-  (if (cgl_check_serial)
-    (progn
-  (vmon)
-  (gradlbl)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
-  )
+;(defun c:gl ()
+;  (if (cgl_check_serial)
+;    (progn
+;  (vmon)
+;  (gradlbl)
+;    );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)  
+;  )
+;(defun c:gradlbl ()
+;  (if (cgl_check_serial)
+;    (progn
+;  (vmon)
+;  (gradlbl)
+;    );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)  
+;  )
 (princ
   "\n\tc:GRADLBL loaded.  Start command with GL or GRADLBL."
 )

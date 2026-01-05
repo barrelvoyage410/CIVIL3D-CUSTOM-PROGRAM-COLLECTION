@@ -90,8 +90,8 @@
 ) ;end flat_land
  ;---------------------------------------------------------------------------
 (defun C:WM_SER ()
-  (if (cgl_check_serial)
-    (progn
+;                      (if (cgl_check_serial)
+;                      (progn
   (graphscr)
 
   (setq CURRENT_LAYER (getvar "clayer"))
@@ -236,8 +236,8 @@
   (MODER) ; return saved modes - leave it like you started!!
   (terpri)
   (princ) ; suck up any "nil" returns, exit quietly
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
+;                          );end checker progn
+;                         (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;                          );end if
+;                          (princ)  
 ) ; end WM_SER

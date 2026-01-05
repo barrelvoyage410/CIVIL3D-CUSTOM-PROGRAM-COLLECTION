@@ -35,8 +35,8 @@
 ;;; revised 03-20-2007 to check for serial number                         ;;; v3.0.2
 
 (defun C:ESAN ()
-  (if (cgl_check_serial)
-    (progn
+;            (if (cgl_check_serial)
+;               (progn
   (graphscr)
   (setq VERSION "3.0.2"
         REDRAW-COMMAND
@@ -323,8 +323,8 @@
   (print)
   (princ)
   (princ)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)
+;                  );end checker progn
+;                    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;                       );end if
+;                         (princ)
 ) ;end Esan

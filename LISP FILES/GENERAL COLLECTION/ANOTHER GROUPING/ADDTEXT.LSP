@@ -2,7 +2,7 @@
 ;;; revised 11/13/2007 10:45 AM to modify Mtext as well.  ;;;ME
 
 (defun c:addtext ( / PRE SUF SSET N INDEX EL C OLD NEW D B2)
-  (if (cgl_check_serial)
+ ;                                    (if (cgl_check_serial)
     (progn
      (setq COUNT 0)
      (setq PRE (getstring 1 "\nEnter text PREfix :"))
@@ -35,8 +35,8 @@
      (princ (strcat "\n" (itoa COUNT)
      " TEXT entities were processed."))
      (princ)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)
+;                                      );end checker progn
+;                                     (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;                                      );end if
+;                                      (princ)
 );end addtext.lsp

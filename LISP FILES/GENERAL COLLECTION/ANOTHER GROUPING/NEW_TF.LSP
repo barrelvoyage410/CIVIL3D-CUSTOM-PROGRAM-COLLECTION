@@ -111,8 +111,8 @@
                  L              SS             N              CGL_VERSION    CGL_BACK_PAREN
                  CGL_Back_Half  CGL_FRONT_HALF CGL_STR_TRUNCATE
                 )
-  (if (cgl_check_serial)
-    (progn
+;  (if (cgl_check_serial)
+;    (progn
 ;;; This bit is designed more for a dual monitor system, as the version will
 ;;; scroll off a three line display....
   (setq CGL_VERSION "1.1.8")
@@ -301,8 +301,8 @@
     (alert "No TEXT or MTEXT in selection set!")
   ) ;end if
   (princ)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
+;    );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)  
 ) ; end C:NEW_TF

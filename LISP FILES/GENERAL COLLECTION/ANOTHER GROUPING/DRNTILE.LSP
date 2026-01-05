@@ -396,26 +396,26 @@
 ;;;-----------------------------------------------------------------------
 ;;; c: definitions
 ;;;-----------------------------------------------------------------------
-(defun C:DT ()
-  (if (cgl_check_serial)
-    (progn
-  (vmon)
-  (DRNTILE)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)
-  )
-(defun C:DRNTILE ()
-  (if (cgl_check_serial)
-    (progn
-  (vmon)
-  (DRNTILE)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)
-  )
+;(defun C:DT ()
+;  (if (cgl_check_serial)
+;    (progn
+;  (vmon)
+;  (DRNTILE)
+;    );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)
+;  )
+;(defun C:DRNTILE ()
+;  (if (cgl_check_serial)
+;    (progn 
+;  (vmon)
+;  (DRNTILE)
+;    );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)
+;  )
 (princ
   "\n\tc:DRNTILE loaded.  Start command with DT or DRNTILE."
 )

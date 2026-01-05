@@ -8,8 +8,8 @@
 ;;; revised 03-20-2007 to check for serial number
 
 (defun C:PIPE_END ()
-  (if (cgl_check_serial)
-    (progn
+;                      (if (cgl_check_serial)
+;                      (progn
  ;---------------------------------------------------------------------------
  ; save specified mode settings
  ;---------------------------------------------------------------------------
@@ -69,10 +69,10 @@
   ) ;_ end while
  ;---------------------------------------------------------------------------
   (MODER)
-  (setvar "OSMODE" CGL_OSMODE)
+                (setvar "OSMODE" CGL_OSMODE)
   (princ)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
+;                  );end checker progn
+;                  (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;                  );end if
+;                 (princ)  
 ) ;_ end DEFUN PIPE_END

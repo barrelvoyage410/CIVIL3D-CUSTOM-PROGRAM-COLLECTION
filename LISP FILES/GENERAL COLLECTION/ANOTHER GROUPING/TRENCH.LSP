@@ -88,7 +88,7 @@
 ;;; acquire information for trench backfill
 ;;;----------------------------------------------------------------------------
 (defun GPUSER ()
-  (setvar "OSMODE" CGL_OSMODE)
+;                            (setvar "OSMODE" CGL_OSMODE)
   (princ)
   (while
     (setq SP (getpoint "\nStart point of trench backfill: "))
@@ -132,7 +132,7 @@
      (command "UCS" "P")
      (command "ERASE" "P" "")
      (command "layer" "s" CURRENT_LAYER "")
-     (setvar "OSMODE" CGL_OSMODE)
+ ;                      (setvar "OSMODE" CGL_OSMODE)
      (princ)
      (princ)
   ) ;_ end while
@@ -147,7 +147,7 @@
   ) ;_ end setq
 
   (setq CURRENT_LAYER (getvar "CLAYER"))
-  (setq CGL_OSMODE (getvar "OSMODE"))
+;                          (setq CGL_OSMODE (getvar "OSMODE"))
   (MODESAVE '("BLIPMODE" "CMDECHO" "COORDS" "DIMZIN" "GRIPS" "OSMODE" "AUNITS")
   ) ;_ end MODESAVE
  ;save modes
@@ -170,15 +170,15 @@
 (princ)
  ;----------------------------------------------------------------------------
 ;;(defun C:TR () (vmon) (TRENCH_1))
-(defun C:TRENCH ()
-  (if (cgl_check_serial)
-    (progn
-  (vmon)
-  (TRENCH_1)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
-  )
+;                     (defun C:TRENCH ()
+;                       (if (cgl_check_serial)
+;                           (progn
+;                              (vmon)
+;                     (TRENCH_1)
+;                     );end checker progn
+;                     (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;                     );end if
+;                         (princ)  
+;                             )
 (princ "\n\tc:TRENCH loaded. Start command with TRENCH.")
 (princ)

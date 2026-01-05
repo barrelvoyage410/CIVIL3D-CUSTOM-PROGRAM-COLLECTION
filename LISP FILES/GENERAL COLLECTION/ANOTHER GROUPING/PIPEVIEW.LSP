@@ -90,26 +90,26 @@
 ;;;-----------------------------------------------------------------------
 ;;; c: definitions
 ;;;-----------------------------------------------------------------------
-(defun c:pv ()
-  (if (cgl_check_serial)
-    (progn
-  (vmon)
-  (pipeview)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
-  )
-(defun c:pipeview ()
-  (if (cgl_check_serial)
-    (progn
-  (vmon)
-  (pipeview)
-    );end checker progn
-    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
-    );end if
-    (princ)  
-  )
+;(defun c:pv ()
+;  (if (cgl_check_serial)
+;    (progn
+;  (vmon)
+;  (pipeview)
+;    );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)  
+;  )
+;(defun c:pipeview ()
+;  (if (cgl_check_serial)
+;    (progn
+;  (vmon)
+;  (pipeview)
+;    );end checker progn
+;    (alert "  Not running on an authorized CGL install.\n\nCopyright Cowhey Gudmundson Leder, Ltd.")
+;    );end if
+;    (princ)  
+;  )
 (princ "\n\tc:PIPEVIEW loaded.  Start command with PV or PIPEVIEW.")
 (princ)
 ;;; Happy Lisping!! The AutoCad Guru (aka The Cad Elf *<:)-|-< )
