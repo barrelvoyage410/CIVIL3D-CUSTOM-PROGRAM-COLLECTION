@@ -1,0 +1,18 @@
+(defun c:dimrot (/ ent data)
+(setvar "ERRNO" 0)
+(while (or (setq ent (entsel "\nSelect Dimension: "))
+(EQ 7 (GETVAR "errno"))
+)
+(if ent
+(progn
+(setq data (entget (car ent)))
+(if (= (cdr (assoc 0 data)) "DIMENSION")
+(entmod (subst (cons 51 (GETVAR "VIEWTWIST")) (assoc 51 data) data))
+(princ "\nSelected Object is not a DIMENSION.")
+)
+)
+)
+(setvar "ERRNO" 0)
+)
+(princ)
+)

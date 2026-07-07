@@ -1,0 +1,1 @@
+ConstLines.lsp with its RX command [= Rays/Xlines] puts you in a non-plotting layout Layer, and within one running of it, you can switch back and forth between Rays and Xlines, and among various typical pre-set directions and free direction, and place as many such things as you want, and when you're done it returns you to the Layer you were in before.
