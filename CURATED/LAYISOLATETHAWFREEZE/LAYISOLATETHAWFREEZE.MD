@@ -1,0 +1,1 @@
+LayerIsolateThawFreeze.lsp with its LIT and LUT commands is just like LIO/LUO except that it does it by Freezing and Thawing rather than turning Off and On, an option not available with LAYISO [except that within a Viewport, it does VPfreeze rather than turning Off].
