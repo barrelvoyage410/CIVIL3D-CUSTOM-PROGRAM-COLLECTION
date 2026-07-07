@@ -1,0 +1,145 @@
+;***********************************************************************
+;*                  3D HOUSE CONSTRUCTION PROGRAM                      *
+;*           BY: Tim Urbaniak       CAD Instructor                     *
+;*               March 11, 1991     Billings Vo-Tech                   *
+;*                                  3803 Central                       *
+;*                                  Billings, Mt  59102                *
+;*                                  406-656-4445                       *
+;*                                                                     *
+;*  This program will construct a simple 3dhouse shell of either a     *
+;*  gable or a hip type.  Change the layer names and/or colors for     *
+;*  different effects, or use the change command on individual parts   *
+;*  to make a neighborhood look less like government housing.          *
+;*  Send comments to Compuserve Account #76264,2273                    *
+;*                                                                     *
+;*  PS - You must have the DTR and RTD functions defined in your       *
+;*  ACAD.LSP file...If you don't know what that means - read the manual*
+;***********************************************************************  
+(defun dtr (a)
+  (* pi (/ a 180.00))
+)
+(defun rtd (a)
+  (/ (* a 180.00) pi)
+)
+(DEFUN C:3DHOUSE ()
+ (SETVAR "CMDECHO" 0)
+ (GRAPHSCR)
+(SETQ P1  (GETPOINT  "\nStart point for construction: "))
+(SETQ W   (GETDIST   "\nWidth of structure: "))
+(SETQ L   (GETDIST   "\nLength of structure: "))
+(SETQ H   (GETDIST   "\nHeight of wall: "))
+(SETQ P   (GETDIST   "\nRoof rise distance: "))
+(SETQ EE  (GETDIST   "\nRoof overhang on ends: "))
+(SETQ ES  (GETDIST   "\nRoof overhang on front and back: "))
+(SETQ FD  (GETDIST   "\nFascia depth: "))
+(SETQ RPI (GETSTRING "\Is the roof vertical on the ends <Y or N>: "))
+(IF (OR (= RPI "N") (= RPI "n"))
+ (PROGN
+  (SETQ RPS (GETDIST "\nWhat is the end setback for the hip: "))
+ ))
+;setting of points
+   (SETQ P2  (POLAR P1 (DTR 0)  L))
+   (SETQ P3  (POLAR P2 (DTR 90) W))
+   (SETQ P4  (POLAR P1 (DTR 90) W))
+     (COMMAND "LAYER" "M" "FLOOR" "C" "BLUE" "" "")
+     (COMMAND "3DFACE" P1 P2 P3 P4 "")
+;end of base, start of t.o.w.
+   (SETQ P1T (LIST (CAR P1) (CADR P1) H))
+   (SETQ P2T (LIST (CAR P2) (CADR P2) H))
+   (SETQ P3T (LIST (CAR P3) (CADR P3) H))
+   (SETQ P4T (LIST (CAR P4) (CADR P4) H))
+     (COMMAND "LAYER" "M" "WALLS" "C" "YELLOW" "" "")
+     (COMMAND "3DFACE" P1 P2 P2T P1T "")
+     (COMMAND "3DFACE" P1 P4 "I" P4T P1T "")
+     (COMMAND "3DFACE" P2 P3 "I" P3T P2T "")
+     (COMMAND "3DFACE" P3 P4 P4T P3T "")
+;end of t.o.w., start of roof eave undersides   
+   (SETQ EPU1 (LIST (- (CAR P1) EE) (- (CADR P1) ES) H))
+   (SETQ EPU2 (LIST (+ (CAR P2) EE) (- (CADR P2) ES) H))
+   (SETQ EPU3 (LIST (+ (CAR P3) EE) (+ (CADR P3) ES) H))
+   (SETQ EPU4 (LIST (- (CAR P4) EE) (+ (CADR P4) ES) H))
+   (SETQ EU1E (LIST (CAR EPU1) (+ (CADR EPU1) ES) (CADDR EPU1)))
+   (SETQ EU2E (LIST (CAR EPU2) (+ (CADR EPU2) ES) (CADDR EPU2)))
+   (SETQ EU3E (LIST (CAR EPU3) (- (CADR EPU3) ES) (CADDR EPU3)))
+   (SETQ EU4E (LIST (CAR EPU4) (- (CADR EPU4) ES) (CADDR EPU4)))
+     (COMMAND "LAYER" "M" "EAVES" "C" "WHITE" "" "")
+     (COMMAND "3DFACE" EPU1 EU1E EU2E EPU2 "")
+     (COMMAND "3DFACE" EPU3 EU3E EU4E EPU4 "")
+;end of roof eave undersides and start of fascia 
+   (SETQ EPT1 (LIST (CAR EPU1) (CADR EPU1) (+ (CADDR EPU1) FD))) 
+   (SETQ EPT2 (LIST (CAR EPU2) (CADR EPU2) (+ (CADDR EPU2) FD)))
+   (SETQ EPT3 (LIST (CAR EPU3) (CADR EPU3) (+ (CADDR EPU3) FD)))
+   (SETQ EPT4 (LIST (CAR EPU4) (CADR EPU4) (+ (CADDR EPU4) FD)))
+     (COMMAND "LAYER" "M" "FASCIA" "C" "WHITE" "" "")
+     (COMMAND "3DFACE" EPU1 EPT1 EPT2 EPU2 "")
+     (COMMAND "3DFACE" EPU3 EPT3 EPT4 EPU4 "")
+;end of eave tops and start of roof peak
+(IF (OR (= RPI "N") (= RPI "n"))
+ (PROGN
+  (SETQ RP1 (LIST (+ (CAR P1) RPS) (- (CADR P4) (/ W 2.0))
+      (+ H P FD)))
+  (SETQ RP2 (LIST (- (CAR P2) RPS) (- (CADR P4) (/ W 2.0))
+      (+ H P FD)))
+     (COMMAND "LAYER" "M" "ROOF" "C" "RED" "" "")
+     (COMMAND "3DFACE" EPT1 EPT2 RP2 RP1 "")
+     (COMMAND "3DFACE" EPT3 EPT4 RP1 RP2 "")
+     (COMMAND "3DFACE" EPT1 EPT4 RP1 "" "")
+     (COMMAND "3DFACE" EPT2 EPT3 RP2 "" "")
+     (COMMAND "LAYER" "S" "FASCIA" "")
+     (COMMAND "3DFACE" EPT1 EPT4 EPU4 EPU1 "")
+     (COMMAND "3DFACE" EPT2 EPT3 EPU3 EPU2 "")
+     (COMMAND "LAYER" "S" "EAVES" "")
+     (COMMAND "3DFACE" EPU1 EPU4 EU4E EU1E "")
+     (COMMAND "3DFACE" EPU2 EPU3 EU3E EU2E "")
+     )
+ (PROGN
+  (SETQ RP1 (LIST (CAR EPU1) (+ (CADR P1) (/ W 2.0))
+      (+ H P FD)))
+  (SETQ RP2 (LIST (CAR EPU2) (+ (CADR P1) (/ W 2.0))
+      (+ H P FD)))
+  (SETQ RP1U (LIST (CAR RP1) (CADR RP1) (- (CADDR RP1) FD)))
+  (SETQ RP2U (LIST (CAR RP2) (CADR RP2) (- (CADDR RP2) FD)))
+  (SETQ RP1W (LIST (+ (CAR RP1) EE) (CADR RP1) (CADDR RP1U)))
+  (SETQ RP2W (LIST (- (CAR RP2) EE) (CADR RP2) (CADDR RP2U)))
+  (SETQ BASE (/ (+ W (* ES 2)) 2))
+  (SETQ ANG  (ATAN P BASE))         ;slope angle in radians
+  (SETQ HYP  (/ ES (COS ANG)))
+  (SETQ RISE (* (SIN ANG) HYP))     ;end eave rise distance 
+  (SETQ EN1  (LIST (CAR EU1E) (CADR EU1E) (+ (CADDR EU1E) RISE)))
+  (SETQ EN2  (LIST (CAR EU2E) (CADR EU2E) (+ (CADDR EU2E) RISE)))
+  (SETQ EN3  (LIST (CAR EU3E) (CADR EU3E) (+ (CADDR EU3E) RISE)))
+  (SETQ EN4  (LIST (CAR EU4E) (CADR EU4E) (+ (CADDR EU4E) RISE)))
+  (SETQ EN1I (LIST (+ (CAR EN1) EE) (CADR EN1) (CADDR EN1)))
+  (SETQ EN2I (LIST (- (CAR EN2) EE) (CADR EN2) (CADDR EN2)))
+  (SETQ EN3I (LIST (- (CAR EN3) EE) (CADR EN3) (CADDR EN3)))
+  (SETQ EN4I (LIST (+ (CAR EN4) EE) (CADR EN4) (CADDR EN4)))
+     (COMMAND "LAYER" "M" "ROOF" "C" "RED" "" "")
+     (COMMAND "3DFACE" EPT1 EPT2 RP2 RP1 "")
+     (COMMAND "3DFACE" EPT3 EPT4 RP1 RP2 "")
+     (COMMAND "LAYER" "S" "EAVES" "")
+     (COMMAND "3DFACE" P1T EU1E EN1 EN1I "")
+     (COMMAND "3DFACE" P2T EU2E EN2 EN2I "")
+     (COMMAND "3DFACE" P3T EU3E EN3 EN3I "")
+     (COMMAND "3DFACE" P4T EU4E EN4 EN4I "")
+     (COMMAND "3DFACE" EN1I EN1 RP1U RP1W "") 
+     (COMMAND "3DFACE" EN4I EN4 RP1U RP1W "")
+     (COMMAND "3DFACE" EN2I EN2 RP2U RP2W "")
+     (COMMAND "3DFACE" EN3I EN3 RP2U RP2W "")
+     (COMMAND "LAYER" "S" "FASCIA" "")
+     (COMMAND "3DFACE" EPU1 EPT1 RP1 RP1U "")
+     (COMMAND "3DFACE" EPU4 EPT4 RP1 RP1U "")
+     (COMMAND "3DFACE" EPU2 EPT2 RP2 RP2U "")
+     (COMMAND "3DFACE" EPU3 EPT3 RP2 RP2U "")
+     (COMMAND "3DFACE" EPU1 EU1E EN1 "" "")
+     (COMMAND "3DFACE" EPU2 EU2E EN2 "" "")
+     (COMMAND "3DFACE" EPU3 EU3E EN3 "" "")
+     (COMMAND "3DFACE" EPU4 EU4E EN4 "" "")
+     (COMMAND "LAYER" "S" "WALLS" "")
+     (COMMAND "3DFACE" P1T "I" EN1I EN4I "I" P4T "" )
+     (COMMAND "3DFACE" P2T "I" EN2I EN3I "I" P3T "" )
+     (COMMAND "3DFACE" EN1I RP1W "I" EN4I "" "")
+     (COMMAND "3DFACE" EN2I RP2W "I" EN3I "" "")
+     )
+)
+;end of program
+)
