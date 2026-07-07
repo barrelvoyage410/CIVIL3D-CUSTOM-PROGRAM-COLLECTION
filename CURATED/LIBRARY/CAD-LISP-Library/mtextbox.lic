@@ -1,0 +1,56 @@
+MTEXTBOX v1.0
+June 2, 1996
+Mike Dickason
+Autodesk Mechanical Group
+
+This .ARX file will currently work only with AutoCAD R13c4.  It will 
+not work with earlier versions of R13, and is not guaranteed to work
+with any version of AutoCAD that might follow R13c4.
+
+
+
+DESCRIPTION:
+
+This is a program to implement a version of the AutoLisp (textbox) function
+for use with R13 MText.  This program is necessary since the AutoLisp
+(textbox) function doesn't handle MText objects.
+
+
+Once the MTEXTBOX.ARX has been loaded using the ARX or (arx) command, the 
+	usage is as follows:
+
+
+Usage:  (mtextbox <entity name>)
+
+	Where <entity name> is the entity handle of an MText object.  
+
+
+Returns:
+A list of two points.  The points returned by (mtextbox) describe the bounding
+box of the MText object as if its insertion point is located at (0,0,0) and its
+rotation angle is 0.  The value of the first point specifies the offset from the
+text insertion point to the lower-left corner of the smallest rectangle enclosing
+the MText.  The second point specifies the upper-right corner of that box.  Regardless
+of the orientation of the MText being measured, the point list returned always
+describes the bottom-left and upper-right corners of this bounding box.
+
+
+
+NOTE:
+This implementation of (mtextbox) differs slightly from the AutoLisp (textbox)
+function in that mtextbox takes an entity handle as an argument instead of
+the entity definition list used by textbox.
+
+
+Permission to use, copy, modify, and distribute this software in 
+object code form for any purpose and without fee is hereby granted, 
+provided that the above copyright notice appears in all copies and 
+that both that copyright notice and the limited warranty and 
+restricted rights notice below appear in all supporting 
+documentation.
+
+AUTODESK PROVIDES THIS PROGRAM "AS IS" AND WITH ALL FAULTS.  
+AUTODESK SPECIFICALLY DISCLAIMS ANY IMPLIED WARRANTY OF 
+MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE.  AUTODESK, INC.
+DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE 
+UNINTERRUPTED OR ERROR FREE.

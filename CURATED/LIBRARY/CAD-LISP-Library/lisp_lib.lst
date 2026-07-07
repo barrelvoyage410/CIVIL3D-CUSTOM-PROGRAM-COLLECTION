@@ -1,0 +1,787 @@
+>ALL
+<ALL END
+
+>ATTRIBUTES
+at_add.lsp
+atorder.lsp
+atrep.lsp
+att.lsp
+attconv.lsp
+attpl.lsp
+attw.lsp
+atte.lsp
+cattl.lsp
+matt.lsp
+<ATTRIBUTES END
+
+>BLOCKS
+chsf.lsp
+ble.lsp
+blex.lsp
+fblk.lsp
+reblk.lsp
+robl.lsp
+scbl.lsp
+tclbl.lsp
+<BLOCKS END
+
+>CONVERSONS
+chel.lsp
+chm.lsp
+chmet.lsp
+chsl.lsp
+chcol.lsp
+chlay.lsp
+chlayr.lsp
+chmm.lsp
+chrd.lsp
+cspace.lsp
+noel.lsp
+renam.lsp
+rmm.lsp
+<CONVERSONS END
+
+>LEADERS
+har.lsp
+ldarch.lsp
+nea.lsp
+sar.lsp
+<LEADERS END
+
+>TEXT
+algtxt.lsp
+art.lsp
+brktxt.lsp
+chcase.lsp
+chslant.lsp
+chth.lsp
+cstyle.lsp
+ftxt.lsp
+fstyl.lsp
+hface.lsp
+mrrd_txt.lsp
+retx.lsp
+retxt.lsp
+rotxt.lsp
+staed.lsp
+<TEXT END
+
+>MISC
+var.lsp
+asview.lsp
+chend.lsp
+clean.lsp
+cnt.lsp
+rott.lsp
+spurge.lsp
+etxt.lsp
+<MISC END
+
+>POLYLINES
+gpedit.lsp
+pmake.lsp
+pmk_l.lsp
+wpedit.lsp
+<POLYLINES END
+
+>SS EDITORS
+enedit.lsp
+<SS EDITORS END
+
+>MEASURING
+care.lsp
+di.lsp
+<MEASURING END
+
+>XREFS
+ident.lsp
+idl.lsp
+xcopy.lsp
+xrut.lsp
+<XREFS END
+
+>SURVEY
+drive.lsp
+nut.lsp
+fl.lsp
+srvy.lsp
+sta.lsp
+<SURVEY END
+
+
+/////////////////////END LISPS///////////////////////////////////
+		START DESCRIPTIONS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+>ART.DSC
+art.lsp creates arced text through a dialogue box. Unlike
+many similar routines the user doesn't need to select an
+arc or circle to create the arced text. Just select a 
+center point, radius, check a radio button which specifies
+whether the text is to be drawn facing the center or
+facing away from the center and the type in the text at
+the edit line. Donation $15
+<END ART.DSC
+
+
+>MATT.DSC
+matt.lsp moves attributes inside blocks using the
+insertion point of the attribute as the base point.
+This routine lets you select and move one attribute
+at a time until you press the spacebar.(equivalent
+to the 'attedit' command in autocadd but much easier
+to use and more user friendly. Donation $5
+<END MATT.DESC
+
+>ENEDIT.DSC
+enedit.lsp is a powerful entity editor for autocadd. 
+This program allows the user to select one sample 
+entity and the from that entity select all attributes
+(i.e. color,layer,style,etc.) to create a selection
+set of entities from. From that selection set the user
+can then run a number of autocadd commands or enedit
+routines to modify it. Example: Say you want all text
+on layer ----TX to be 0.12 units high. First you'd 
+select the 'Select Sample Entity<' button and select
+a text entity on layer '----TX'. Then you'd select the
+'Chstyle' option on the 'Edit:' popup list, then on the
+'SSby' scroll lists select 'Layer' and 'Type' (at least
+one of these lists must be selected). Then select the
+'Edit' button. At the Autocadd command line you will see
+a list of options to select for the chstyle command, you 
+want to change height so type 'h' <enter>. Now at the 
+autocadd command line you'll see 'select objects', you 
+can either select entities one by one, window an area,
+or just type 'all' <enter>. Only those entities that 
+follow the selection set criteria that you specified
+will be selected and edited - in this case all text
+on layer '----TX' will now have a height of 0.12!(Other
+edits its capable of -change slant, style, font, height,
+move, scale, erase, copy, block, width, all commands in
+the autocad change command.) Donation $20
+<END ENEDIT.DSC
+
+>FBLK.DSC
+fblk.lsp is a program that gets user input on which block
+to find and the zoom window size. The routine will then 
+find each user specified block and zoom to it using the 
+user specified zoom window. It pauses at each block found 
+until the user hits the spacebar or <enter> button. 
+Donation $5
+<END FBLK.DSC
+
+>SCBL.DSC
+scbl.lsp gets user input on what the block scale should 
+be, then the user selects which block to scale and the 
+routine will scale that block about its insertion point to
+the user specified scale, the routine continues scaling 
+blocks one at a time until the user selects an entity that 
+isn't a block or presses the spacebar.
+Donation $5
+<END SCBL.DSC
+
+>HFACE.DSC
+hface.lsp is a program that creates a 3dface around text in
+a drawing by either user selection, layer (specified by 
+user), or all text in the drawing. The 3dface is placed on
+layer '----HI' and is placed at a user specified elevation
+and scale (scale determines the gap between the text and 
+3dface box). Included programs are rid.lsp, pplot.lsp, and
+a routine that checks your drawing for null text. Null text
+entities is text inside your drawing that has nothing in 
+it. They are not visible but when zoom extents is envoked 
+the zoom window may be much larger than the visible 
+drawing size because autocad is zooming to the null text 
+entities. If hface finds a null text entity it places 
+'NullText' inside that entity (thus making it visible) 
+and warns the user giving him/her the option of manually 
+erasing those entities or letting hface erase them. 
+Pplot.lsp should be used in paper space only. This routine 
+turns hide on for all viewport in your drawing, regardless
+if they're on/off or frozen/thawed, it also turns layer
+'----HI' off. The rid command erases all 3dfaces on layer
+'----HI' so the user can start over and create new 3dfaces
+from scratch if the text size has changed or a large  
+number of text entities have been moved or erased without 
+editing the 3dfaces surrounding them.
+Donation $25
+<END HFACE.DSC
+
+>CHM.DSC
+chm.lsp converts dimension text (in inches) to metric (in
+mm). This routine was written to convert all utility pipe 
+diameters in inches to mm. This routine works by looking
+at every text entity in the current drawing and if a text 
+entity follows the convention of pipe size first and then
+followed by any other text (optional) the routine zooms
+to the offending text at a user specified zoom window and
+is asked whether to convert the text or not. If the user's
+answer is yes then the text is split at the inch sign (")
+and everthing before it is converted to mm and the inch
+symbol (") is converted to 'mm'. Example: if the text
+18" S.D. was in the drawing the routine would zoom to this
+text, at the command line would repeat this text to the
+user and ask whether to convert it or not, If the user
+answers yes the text would be split so S.D. remains in
+the same location but now 18" reads 458 mm (round to 
+nearest whole mm). The user is then asked for a new 
+location to put the converted text so it can be lined back
+up with the S.D. text. This routine continues through the
+same sequence until all text containing " has been viewed
+by the user. $10
+<END CHM.DSC
+
+>CHMET.DSC
+chmet.lsp was written to convert all contour text from feet
+to metric. This routine asks the user to select sample text
+and window an area to convert (or type all) the routine
+then converts all text on the specified text layer to 
+meters. $10
+<END CHMET.DSC 
+
+>DRIVE.DSC
+drive.lsp was written for survey data files to draw a 
+driveway at the correct location and dimensions automatic-
+ally. This routine works by prompting the user to select
+the survey file (*.pts) to check. If the survey data file
+follows the convention of xx' dw in the description area
+for every center point of each driveway surveyed two lines
+are drawn at each side of the driveway at xx/2 feet from
+the center point of the driveway. I.E. :
+1     1000.000     1000.000  120.125   20' DW
+2     1500.152     1056.235  115.253   FL  
+...
+Donation $5
+<END DRIVE.DSC
+
+>FL.DSC
+fl.lsp was written for survey data files to draw a 
+spot elevation at the flowline of all flowlines surveyed
+automatically. This routine works by prompting the user to
+select the survey file (*.pts) to check. If the survey data
+file follows the convention of 'fl' in the description area
+and the z section (elevation) is the flowline elevation
+a spot elevation will be placed at the correct x,y location
+in the current drawing with the correct elevation 
+automatically. survey descriptors in the *.pts file must be
+*FL* to work properly. I.E.:
+1 1000.000 1000.000 121.025 SSFL
+2 1520.005 1056.158 128.025 MH
+.....
+And a block named 'FL' containing one attribute must be difined
+i.e.:
+        *---FLxxxx    where xxxx is the attribute.
+Donation $5
+<END FL.DSC
+
+>NUT.DSC
+nut.lsp was written for survey data files to draw a 
+spot elevation on watermeters in the current drawing
+automatically. This routine works by prompting the user to
+select the survey file (*.pts) to check. If the survey data
+file follows the convention of 'wm' in the description area
+and the z section (elevation) is the nut elevation
+a spot elevation will be placed at the correct x,y location
+in the current drawing with the correct elevation 
+automatically. Survey descriptors must in the *.pts file
+must read *VA* to work properly.
+I.E.:
+1 1000.000 1000.000 121.025 WMVA
+2 1520.005 1056.158 128.025 MH
+.....
+And a block named 'NUT' containing one attribute must be difined
+i.e.:
+        *---NUTxxxx    where xxxx is the attribute.
+NOTE:IGNORES ANY DESC. WITH A G IN IT I.E. GASVA
+Donation $5
+<END NUT.DSC
+
+>ASVIEW.DSC
+asview.lsp is an ascii text viewer. It prompts the user
+for a text file and then displays it in a dialogue box.
+The user is then offered the option to either print it,
+close the file, or open another. (as with many of these
+routines a similar viewer is offered in softdesk but this
+saves the user time and hassle from switching to a new
+menu which has a similar routine and then waiting for
+that particular module to be loaded into memory-with
+this routine just type 'AV' to view.)
+Donation $10
+<END ASVIEW.DSC
+
+>DI.DSC
+di.lsp operates out of a dialogue box and allows the user
+to measure lengths of objects drawn in 3d (having x,y,z
+coordinates). The user can measure in any dimension and in any
+combination of dimensions (x, y, z, xz, xy, etc.).
+Donation $10
+<END DI.DSC
+
+>CHSL.DSC
+chsl.lsp was written for text in profiles written as 
+'S=XX.X% to be converted to S=0.00X. It finds all text
+following this convention and converts it.
+Donation $5
+<END CHSL.DSC
+
+>CHEL.DSC
+chel.lsp moves 3d entities to 2d (sets z values to zero) by
+selection.
+Donation $5
+<END CHEL.DSC
+
+>STA.DSC
+sta.lsp was written for suvey data files. It reads the
+stationing supplied by the surveyors in the descriptor area
+of the *.pts files and inserts the station and a tick mark
+at the surveyed station point. The survey data file must be
+space dileminated and follow this example:
+1 1000.000 1000.000 125.256 120+23-insert sta 120.23
+(note any other data can be in the descriptor as long as
+there is a '+' or '&' to signify a station) i.e.:
+CL 100+50 in the descriptor would still produce a station.
+Donation $5
+<END STA.DSC
+
+>REBLK.DSC
+reblk.lsp replaces a selected block with a new block by 
+selection. First enter in the new block name then select
+blocks one at a time that should be converted, press 
+spacebar to exit.
+Donation $5
+<END REBLK.DSC
+
+>ROBL.DSC
+robl.lsp rotates blocks by selection using the insertion
+point as the base point of rotation.-Type 'RB'
+Donation $5
+<END ROBL.DSC
+
+>CARE.DSC
+care.lsp was written to calculate the areas of elevation
+contours for earthwork calcs. It calculates the countours 
+by selection and then creates a table showing contour 
+elevations and areas.
+Donation $5
+<END CARE.DSC
+
+>HAR.DSC
+har.lsp creates an arced leader with a hatched arrowhead for use
+with the hide command when using hface.lsp to hide entities under
+text.
+DONATION $5
+<END HAR.DSC
+
+>SAR.DSC
+sar.lsp creates an arced leader with a solid arrowhead.
+DONATION $5
+<END SAR.DSC
+
+>LDARCH.DSC
+ldarch.lsp creates a fancy curved polyline leader using a 
+compound curve as the leader line.-Type LA to run.
+Donation $5
+<END LDARCH.DSC
+
+>MRRD_TXT.DSC
+mrrd_txt.lsp unmirrors (if that's a word) text that has been
+mirrored for one reason or another.
+Donation $5
+<END MRRD_TXT.DSC
+
+>XCOPY.DSC
+xcopy.lsp copies simple entites (not complex) from a xref'd dwg.
+to the user's current drawing.
+Donation $5
+<END XCOPY.DSC
+
+>IDENT.DSC
+ident.lsp is used to determine the type of entity selected in a
+xref'd drawing. Just select an entity and the program returns
+whether the entity is a circle, line, etc..
+Donation $5
+<END IDENT.DSC
+
+>IDL.DSC
+idl.lsp identifies layers of entities selected in xrefs.
+Donation $5
+<END IDL.DSC
+
+>ATT.DSC
+att.lsp scales blocks and attributes from insertion points.
+Donation $5
+<END ATT.DSC
+
+>CHCASE.DSC
+chcase.lsp converts all text to uppercase in a drawing.
+Donation $5
+<END CHCASE.DSC
+
+>CHSF.DSC
+chsf.lsp scales all blocks within a user specified window to
+a new user specified scale type 'cf'. By typing 'ctf' it will
+scale all text within a user specified window.
+Donation $5
+<END CHSF.DSC
+
+>NEA.DSC
+nea.lsp creates a leader with the stationing (user input) angle
+(calcs. from two lines selected) and northing easting (calcs).
+Intended for pipe callouts in plan view.
+Donation $5
+<END NEA.DSC
+
+>ROTT.DSC
+rott.lsp prompts the user to window an area, it then scales every-
+thing within that crossing to a user specified scale, and then 
+prompts the user for a new location of the data (stretch command).
+Intended for use with the nea.lsp command, to scale, rotate, and
+stretch the leader and text to a new location if the dwg. size
+has changed or the leader and text are in a bad location.
+Donation $5
+<END ROTT.DSC
+
+>ATTE.DSC
+atte.lsp replaces the annoying period (.) that is placed in the
+point data of attributes for no entry text. This way it doesn't
+show up if you wish to create a plot with survey elevations showing
+and some elevation weren't given so softdesk put in a bunch of 
+periods at point numbers where no elevations were found.
+Donation $5
+<END ATTE.DSC
+
+>ATTW.DSC
+attw.lsp scales attributes within blocks that are located within
+a user specified window area.
+Donation $5
+<END ATTW.DSC
+
+>BLE.DSC
+ble.lsp erases all blocks in a drawing that have been inserted a
+a certain scale (specified by user).
+Donation $5
+<END BLE.DSC
+
+>CHCOL.DSC
+chcol.lsp converts all entities of one color to another. (original
+color can't be bylayer)
+Donation $5
+<END CHCOL.DSC
+
+>CHLAY.DSC
+chlay.lsp moves all entities on a selected layer to a new user
+specified layer.
+Donation $5
+<END CHLAY.DSC
+
+>CHLAYR.DSC
+chlayr.lsp moves entities selected to the current layer.
+Donation $5
+<END CHLAYR.DSC
+
+>CSTYLE.DSC
+cstyle.lsp allows the user to change the style of a 
+selected text entity by selecting another text entity
+to match.
+Donation $5
+<END CSTYLE.DSC
+
+>RETX.DSC
+retx.lsp allows the user to replace old text with new text by
+selection. The user is first prompted to select the text to
+replace and then prompted to select the new text to replace
+it with. This routine was created to update Northing and
+Easting coordinates by using the softdesk label northing
+easting routine and then updating the old values by selecting
+the new. This eliminates the hassle of arranging new values
+that have been updated to the same location and orientation as
+the old values.
+Donation $5
+<END RETX.DSC
+
+>VAR.DSC
+Var.lsp saves a user selected group of system
+variables to a file called dwgname.EVS where dwgname
+is the current drawing name. These variables can then
+be easily restored by selecting the restore button. If an
+EVS file is not associated with the current drawing the
+user will be prompted to select one. This allows the user
+to match variables from one drawing to a new drawing
+without prototyping. There are two main uses for this
+program; 
+(1) To restore the system variables which are
+    often changed by Softdesk commands
+    (i.e. Pickbox, Dragmode, etc..)
+(2) To copy variables for one file into another
+    without setting up a prototype drawing.
+    (i.e. Copying Dimvars, which there are alot
+    of, from a drawing where they've already
+    been set to a new drawing.)
+Donation $15
+<END VAR.DSC
+
+>FSTYL.DSC
+fstyl.lsp was written for architectural projects to 
+convert civil standard text fonts to artichoke fonts 
+(Architects). This routine will search the drawing
+database for all fonts that aren't either simplex, au101s01,
+au102s00, or au102s01 fonts. If it finds fonts that aren't of
+these types it zooms to it, highlights it, and asks the user
+what style to convert it too. The Font and Style are shown at
+the status area of autocad (where the coordinates and layer
+are usually shown at the top of the screen.). The user must 
+then type in a style that he/she wishes to use that uses one
+of the fonts listed above. The program cycles through till all
+fonts are checked. NOTE: if you have fonts in paperspace run
+fstyl.lsp in paperspace the first time, then run it again in
+model space.
+Donation $5
+<END FSTYL.DSC
+
+>CHRD.DSC
+chrd.lsp rounds numbers to 2 decimal places by a windowed area.
+this is a quick and dirty routine with no error code so if you
+mess up it will bomb out and you'll have to start over.
+Donation $5
+<END CHRD.DSC
+
+>ATTPL.DSC
+attpl.lsp rounds attribute numbers to 2 decimal places, it  
+is intended to be used to change spot elevation attributes
+to 2 places. The spot elevation block name must be named "ET".
+type 'ap' to run.
+Donation $5
+<END ATTPL.DSC
+
+>CHTH.DSC
+chth.lsp adds thickness to text automatically for hiding with
+3dfaces created with the hface routine.
+Donation $5
+<END CHTH.DSC
+
+>ATTCONV.DSC
+attconv.lsp changes the elevation attribute in the point block
+from english units to metric using a conversion factor of 0.3048
+and re-writes the number with two decimal places. You must be
+using the point.dwg block however with num, elev, and desc
+attributes.
+Donation $5
+<END ATTCONV.DSC
+
+>RENAM.DSC
+renam.lsp converts long layer names to its last 5 characters
++ a number that corresponds to its original location in the layer
+list. Say you have a layer called AIA-LAYER-PRPLAN and it is the
+second layer in your layer list renam.lsp renames this layer to
+2PRPLAN. This routine was written so you could xref in files with
+long layer names.
+Donation $5
+<END RENAM.DSC 
+
+>GPEDIT.DSC
+gpedit.lsp runs a global pedit command for all polylines in your
+drawing. You can do a global pedit for Close polyline, Decurve,
+Splinefit, Width, Fit, or Ltype.-Type GPE to run.
+Donation $5
+<END GPEDIT.DSC
+
+>FTXT.DSC
+ftxt.lsp finds user specified text in a drawing and zooms to that
+text. This routine uses wildcard matching and allows the user
+to specify the zoom window. It then tallies up the total number
+of text entities in the drawing and then proceeds to zoom to each
+piece of text matching the inputed parameters. type ftx to run.
+Donation $5
+<END FTXT.DSC
+
+>CATTL.DSC
+cattl.lsp changes attribute layers by selection. Input new layer
+and select attributes to edit-type cal to begin.
+Donation $5
+<END CATTL.DSC
+
+>NOEL.DSC
+noel.lsp gives every entity in your drawing an elevation of zero (0)
+except entities on layers dca_info, defpoints, sym*, and ----xr, and
+3dpolylines.-type 'EL' to run.
+Donation $5
+<END NOEL.DSC
+
+>ETXT.DSC
+etxt.lsp erases all text of a certain type by selection.-select the
+text 'TEXT' and every occurance of 'TEXT' is erased.
+Donation $5
+<END ETXT.DSC
+
+>CHMM.DSC
+chmm.lsp convert numbers in meters to mm. i.e.-> 7.90m-->7 900. Follows 
+metric guidelines. Meter <space> milimeter.
+Donation $5
+<END CHMM.DSC
+
+>RMM.DSC
+rmm.lsp removes the 'mm' from units. i.e. 1290mm->1 290 this follows
+metric conventions. Will not work for units in a sentence. i.e. 'place
+90mm of A.C.'
+Donation $5
+<END RMM.DSC
+
+>RETXT.DSC
+retxt.lsp replaces an old text string with a new one globally-'RT' to
+start.
+Donation $5
+<END RETXT.DSC
+
+>CHEND.DSC
+chend.lsp switches the start and endpoints of a line-type 'CE' to run.
+Donation $5
+<END CHEND.DSC
+
+>ATREP.DSC
+atrep.lsp replaces an old block attribute text with new user specified
+text globally-type 'AR' to run.
+Donation $5
+<END ATREP.DSC
+
+>BLEX.DSC
+Blex.lsp explodes a block and puts its entities on the layer
+that the block was inserted on. Type 'BE' to run.
+Donation $5
+<END BLEX.DSC
+
+>WPEDIT.DSC
+Wpedit.lsp runs a global pedit command for all polylines in that lie
+within a user specified window. You can do a global pedit for 
+Close polyline, Decurve, Splinefit, Width, Fit, or Ltype.
+-Type WPE to run.
+Donation $5
+<END WPEDIT.DSC
+
+>BRKTXT.DSC
+brktxt.lsp breaks a text string at a user specified point into to text
+strings. The user specifies the last 3 letters of the first string and
+from this the program breaks the string into a second string. I.E. given
+the string 'This is a test' if you input to break the string at 'is '
+you would get the strings 'This is ' and 'a test'.
+Donation $5
+<END BRKTXT.DSC
+
+>ALGTXT.DSC
+algtxt.lsp aligns the dtext angle with a line by selection.
+Donation $5
+<END ALGTXT.DSC
+
+>STAED.DSC
+staed.lsp globally modifies the station and offset lables produced by the cogo in 
+softdesk so that they read more standard. For example:
+'OFFSET: 89.00 R' 
+converts to 89.00' R 
+and 
+STA: 54+99.89 
+converts to STA 54+99.89
+Type 'ste' to run
+Donation $5
+<END STAED.DSC
+
+>PMAKE.DSC
+pmake.lsp grabs all lines (and arcs if the user specifies) in a drawing and 
+converts them to polylines. It then checks all polylines and if any can be joined
+ it joins them. -PMK to run
+Donation $5
+<END PMAKE.DSC
+
+>PMK_L.DSC
+pmk_l.lsp grabs all lines (and arcs if the user specifies) on a user selected layer, 
+converts them to polylines, then joins any that can be joined.-PKL to run.
+Donation $5
+<END PMK_L.DSC
+
+>SPURGE.DSC
+spurge.lsp does the purge command recursivly. Just type spurge instead of purge and
+you are prompted, just like the purge command, as to what you wish to purge. Spurge
+then purges what you want without prompting you with a Y/N for every unreferenced
+enitity, linetype, layer, block, etc. -type 'SPURGE' to run.
+Donation $5
+<END SPURGE.DSC
+
+>TCLBL.DSC
+tclbl.lsp requires that the blocks 'SL','SR','CL', & 'CR' be defined in your current
+drawing. These block must have a top of curb attribute tag and a bottom of curb attr.
+tag. This routine prompts the user for the top of curb elevation and then insertion
+point and angle. It then calcs. the bottom of curb (BC) and inserts one of the blocks
+listed above with the TC and BC attributes filled in. Type 'SL', 'SR', 'CL', or 'CR' 
+to run depending on which block you wish to insert. 'SL' would be a slanted left tag,
+'SR' would be Slanted right, 'CL' & 'CR' would have the text facing opposite 
+(upside down) from 'SR' and 'SL'.
+Donation $5
+<END TCLBL.DSC 
+
+>ROTXT.DSC
+rotxt.lsp rotates text about mid point.-type 'RTX'
+Donation $5
+<END ROTXT.DSC
+
+>AT_ADD.DSC
+at_add.lsp adds a user specified factor to the point attribute of the point.dwg block.
+It doesn't act globally but through a user specified windowed area. This was written
+so I could insert a block from another file and project that has points in it and run
+the softdesk check points routine to add the points to the current drawings project
+without having a duplicate points error.
+Donation $5
+<END AT_ADD.DSC
+
+>ATORDER.DSC
+atorder.lsp reorders attribute tags. It asks a user to specify a block with the 
+correct attribute tag order. It then proceeds to reorder all the attribute tags
+of all the blocks. (does a maximum of 4 attributes per block.)
+Donation $5
+<END ATORDER.DSC
+
+>CHSLANT.DSC
+chslant.lsp changes text slant globally-CHSL to run.
+Donation $5
+<END CHSLANT.DSC
+
+>CNT.DSC
+cnt.lsp inserts sequentail numbered text into a drawing. Input starting number, factor
+to count up or down by, whether to count up or down, and then just start picking points
+to insert the text.-Type 'KCN'.
+Donation $5
+<END CNT.DSC
+
+>CSPACE.DSC
+Cspace.lsp Changes the space of a windowed selection of entities. If they're in
+model space they are moved to paper space or visa versa.
+Donation $5
+<END CSPACE.DSC
+
+>CLEAN.DSC
+Clean.lsp is useful if you ever try to zoom extents and find Autocad zooms out to 
+la la land but you cant find any entities out there. You probably have either null
+text entities (text entities with no text thus not visible) or entities consisting 
+of only spaces (again not visible). This routine finds all of these entities and 
+gets rid of them for you - Type ''CLEAN' to run.
+Donation $5
+<END CLEAN.DSC
+
+>SRVY.DSC
+Srvy.lsp is a combination of the dw.lsp, xnut.lsp, xfl.lsp, and sta.lsp routines in a
+dialogue box interface. Using this program you can insert driveways, watermeters 
+elevations, flowlines, and stationing automatically into your drawing. This program
+operates by reading the *.pts file associated with the drawing. This program also 
+reads the user inputed scale, rotation, basepoint, and north rotation. See the
+programs online help for more info.
+Donation $10
+<END SRVY.DSC
+
+>XRUT.DSC
+Xrut.lsp is a set of layer manipulation routines. The following routines are
+available:
+              1)IX-Isolates layers by selection.
+              2)RI-Identify layers by selection.
+              3)XF-Freeze layers by selection.
+
+These routines allow you to not only perform these functions on entity layers 
+in your current drawing but also xref'd layers.
+Donation $10
+<END XRUT.DSC

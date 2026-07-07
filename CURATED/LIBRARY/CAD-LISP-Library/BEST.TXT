@@ -1,0 +1,22 @@
+These are just a few of the top lisp routines you should check 
+out in the library:
+
+1) HFACE.lsp -Create 3dfaces to hide entities around text.
+2) Enedit.lsp-Create a selection set quickly and easily, 
+              then take advantage of its powerful editing
+              routines.
+3) Var.lsp   -Creates a text file that records all the 
+              settings in the current drawing. When the
+              restore button is pressed var.lsp quickly 
+              restores those saved settings.
+4) Spurge.lsp-purge command without verifying every purge.
+5) Brktxt.lsp-Break a line of text and either add it to 
+              another line or create a new line of text with
+              it.
+6) Gpedit.lsp-Edit a plylines globally.
+              
+7) Asview.lsp-View a text file and print it from Autocad.
+
+8) Clean.lsp -Finds all null text and text containing only
+              spaces in your drawing so you can easily get
+              rid of them.

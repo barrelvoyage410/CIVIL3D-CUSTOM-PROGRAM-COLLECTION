@@ -1,0 +1,30 @@
+Quick install guide:
+
+The lisp library was made so you can quickly and easily install it! The steps
+you need to take to install this program are:
+
+1) create a directory called C:\library (or any name will do, and in any
+   location). Place ALL files in the lisp library zip file in this directory,
+   it is extremely important that every file that came with the lisp library
+   is located in the same directory!
+
+2) in Autocad type appload at the command line. Then select the 'file'
+   button. Locate the lisp_lib.lsp file in the directory you created
+   highlight it and select ok. Highlight the lisp_lib.lsp file you've
+   just added to apploads and select load.
+
+3) when you first load the lisp library it asks for the location of the 
+   lisp libary directory. Enter in C:\library (or whatever path and 
+   directory name you created the library in).
+
+4) the library will come up now and is ready to run. You have not touched
+   any Autocad settings at all. The library runs within Autocad but 
+   independant of any Autocad paths or settings.
+
+NOTE: Please read the LISP_LIB.DOC file. This is the library manual,
+      it fully describes how to use the library and add your own 
+      functions to it. This file not only gives detailed information 
+      on how to use the library but also options for loading the library
+      other than the apploads file. The manual gives you detailed information
+      to help you add the lisp library to the acad.lsp file so it will
+      load automatically for you.
