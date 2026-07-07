@@ -1,0 +1,25 @@
+(defun c:clc (/ c d e f l n)
+  ;; RJP » 2018-08-17
+  ;; Set layer color by pick
+  (or (getenv "clc") (setenv "clc" "(62 . 1)"))
+  (cond	((setq c (acad_truecolordlg (read (getenv "clc"))))
+	 (setenv "clc" (vl-prin1-to-string (last c)))
+	 (setq d (vla-get-activedocument (vlax-get-acad-object)))
+	 (while	(setq e (nentsel "\nSelect entity to change layer color: "))
+	   ;; RJP » 2024-08-15
+	   ;; Added a flag to stop setting layer colors once one is changed
+	   (setq f nil)
+	   (foreach x (append (list (car e)) (cadddr e))
+	     (and (setq n (cdr (assoc 8 (entget x))))
+		  (setq l (tblobjname "layer" n))
+		  (null f)
+		  (setq f (not (wcmatch (strcase n) "0,DEFPOINTS")))
+		  (entmod (append (entget l) c))
+		  (vla-regen d acactiveviewport)
+	     )
+	   )
+	 )
+	)
+  )
+  (princ)
+)

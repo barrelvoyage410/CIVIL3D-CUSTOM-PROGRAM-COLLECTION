@@ -1,0 +1,1 @@
+LCC - Lets you change a colour of a layer by selecting an object on that layer. Side-note, this command will not work if you have an RGB true colour override.
