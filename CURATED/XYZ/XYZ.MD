@@ -1,0 +1,1 @@
+XYZ - similar to the ID command but displays the information in a dialog box. My favorite thing about this routine is if your units are set to 1/256, it will display correctly. 
