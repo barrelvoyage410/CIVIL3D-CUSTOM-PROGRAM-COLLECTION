@@ -1,0 +1,1 @@
+Bisector.lsp with its BI command draws an Xline between virtually any two straight things you select [including nested ones], bisecting either the angle  between them if they're not  parallel, or the spacing  between them if they are  parallel.

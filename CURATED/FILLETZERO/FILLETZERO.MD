@@ -1,0 +1,1 @@
+FilletZero.lsp with its FZ command goes into Filleting at zero radius and in multiple mode [as many as you want], for "cleaning up corners," and afterwards restores whatever the current Fillet radius was when you started.
