@@ -1,5 +1,5 @@
 # CIVIL3D-LISP-COLLECTION
-A collection of Civil3D Lisp routines, both new and old.  As long as it works and I can legally put it here, I will be putting it here.
+A collection of Civil3D routines, primarily Lisp files, but some scripts, and some compliled files as well, both new and old.
 
 My goal is specifically for older, unpopular scripts as many older forums could be at risk of deletion (looking at you Autodesk with your forum deletion...) and I do not want those to be lost.
 
