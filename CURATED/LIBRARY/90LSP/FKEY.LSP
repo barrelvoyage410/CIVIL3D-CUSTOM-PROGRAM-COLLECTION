@@ -1,0 +1,5 @@
+(defun c:l80 ()
+(prompt "\e[0;62;'int,end';13p")
+(prompt "\e[0;63;'cen,mid';13p")
+(princ)
+)

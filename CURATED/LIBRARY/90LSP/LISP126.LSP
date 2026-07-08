@@ -1,0 +1,22 @@
+(defun c:lisp126 (/ pt1 a n index b1 b c b2)
+     (setq pt1 (getpoint  "\Pick mesh to make invisible  "))
+     (command "explode" pt1)
+     (prompt "\nThe mesh is now a series of 3dfaces.  ")
+     (prompt "\nSelect entire mesh area to make invisible  ")
+     (setq a (ssget))
+	(setq n (sslength a))
+	(setq index 0)
+	(repeat n
+		(setq b1 (entget (ssname a index)))
+		(setq index (1+ index))
+		(setq b (assoc 0 b1))
+		(if (= "3DFACE" (cdr b))
+			(progn 
+				(setq c (assoc 70 b1))
+                             (setq b2 (subst '(70 . 15) c b1))
+				(entmod b2)
+			)
+		)
+	)
+)
+

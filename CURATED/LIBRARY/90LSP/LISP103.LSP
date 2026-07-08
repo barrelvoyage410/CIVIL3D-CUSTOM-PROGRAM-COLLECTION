@@ -1,0 +1,16 @@
+(defun c:lisp103 ()
+  (setq a (entget (car (entsel))))
+  (setq a1 (subst '(41 . 1.0) '(41 . -1.0) a))
+  (entmod a1)
+  (command "explode" (cdr (assoc -1 a1)))
+  (setq ang (cdr (assoc 50 a1)))
+  (setq pt1 (cdr (assoc 10 a1)))
+  (setq pt2 (polar pt1 (+ (dtr 90) ang) 5))
+  (princ "\n  ") (princ "\n  ")
+  (princ "\nPut a window around the flipped object  ")
+  (command "mirror" "w" pause pause "" pt1 pt2 "y")
+)
+
+(defun dtr (angg)
+  (* pi (/ angg 180.0)))
+

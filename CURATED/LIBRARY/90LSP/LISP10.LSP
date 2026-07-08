@@ -1,0 +1,12 @@
+(defun c:lisp10 (/ os pt1 pt2 pt3)
+  (setq os (getvar "osmode"))
+  (setvar "osmode" 512)
+  (setq pt1 (getpoint "\nPick object to be broken  "))
+  (setvar "osmode" 33)
+  (setq pt2 (getpoint "\nBreak from 1st point  "))
+  (setq pt3 (getpoint "\nto second point  "))
+  (setvar "osmode" 0)
+  (command "break" pt1 "f" pt2 pt3)
+  (setvar "osmode" os)
+)
+

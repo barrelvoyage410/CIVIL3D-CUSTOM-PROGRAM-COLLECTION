@@ -1,0 +1,11 @@
+(defun c:lisp11 (/ os fr pt1)
+  (setq os (getvar "osmode"))
+  (setq fr (getvar "filletrad"))
+  (setvar "osmode" 32)
+  (setvar "filletrad" 0)
+  (setq pt1 (getpoint "\nPick intersection to clean  "))
+  (command "fillet" pt1 pt1)
+  (setvar "osmode" os)
+  (setvar "filletrad" fr)
+)
+

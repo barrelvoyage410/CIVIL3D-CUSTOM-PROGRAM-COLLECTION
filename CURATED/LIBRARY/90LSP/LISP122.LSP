@@ -1,0 +1,20 @@
+(defun c:lisp122 (/ fln f a n index e1 e txt)
+  (setq fln (getstring "\nFile name:  "))
+  (setq f (open fln "w"))
+  (setq a (ssget))
+  (setq n (sslength a))
+  (setq index (- n 1))
+  (repeat n
+    (setq e1 (entget (ssname a index)))
+    (setq index (- index 1))
+    (setq e (assoc 0 e1))
+    (if (= "TEXT" (cdr e))
+      (progn
+        (setq txt (cdr (assoc 1 e1)))
+        (write-line txt f)
+      )
+    )
+  )
+  (close f)
+)
+

@@ -1,0 +1,10 @@
+(defun c:g (/ ft gr)
+  (setq ft (getvar "userr1"))
+  (if (or (= ft 0) (= ft nil)) (setq ft 12.0))
+  (setq gr (/ (getvar "viewsize") (cadr (getvar "vsmax"))))
+  (setq gr (* gr ft))
+  (command "grid" gr)
+  (princ "\nNew grid setting is  ")(princ (rtos gr))
+  (princ)
+)
+

@@ -1,0 +1,12 @@
+(defun c:lisp104 ()
+  (setq os (getvar "osmode"))
+  (setvar "osmode" 512)
+  (setq pt1 (getpoint  "\nFirst break in circle  "))
+  (setq pt2 (getpoint  "\nSecond break in circle  "))
+  (setq a (entget (ssname (ssget pt1) 0)))
+  (setq pt3 (cdr (assoc 10 a)))
+  (command "break" pt1 pt2)
+  (command "arc" pt1 "e" pt2 pt3)
+  (setvar "osmode" os)
+)
+
